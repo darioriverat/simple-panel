@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Country;
 use App\Models\Merchant;
-use App\Models\MerchantCategoryCode;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -13,7 +11,9 @@ class MerchantsController extends Controller
 {
     public function index(): View
     {
-        $merchants = Merchant::paginate(10);
+        $merchants = Merchant::select('id', 'name', 'country_id', 'merchant_category_code_id')
+            ->with('country', 'mcc')
+            ->paginate(10);
 
         return view('merchants.index', compact('merchants'));
     }
