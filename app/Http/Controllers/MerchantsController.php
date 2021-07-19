@@ -13,7 +13,7 @@ class MerchantsController extends Controller
 {
     public function index(): View
     {
-        $merchants = Merchant::all();
+        $merchants = Merchant::paginate(10);
 
         return view('merchants.index', compact('merchants'));
     }

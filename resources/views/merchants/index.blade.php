@@ -32,6 +32,8 @@
                 @endforeach
             </tbody>
         </table>
+
+        {{ $merchants->links() }}
         @else
             <div class="alert alert-warning" role="alert">
                 There are no merchants
