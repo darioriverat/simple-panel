@@ -1,13 +1,13 @@
-# Simple Panel with Message Broker integration
+# Simple Panel with AMQP
 
 This is a dummy application with CRUD functionality. Authentication, Authorization, Data Validation and other
-aspects of wide applications were skipped in order to demonstrate can interact an application with Message Brokers. 
+aspects of wide applications were skipped in order to demonstrate how an application can interact with RabbitMQ. 
 
 # 0. Getting Started
 
-This application is a simple panel with the following function
+This application is a simple panel with the following functions.
 
-- Create merchant
+- Create merchants
 - Update merchants
 - Show merchants
 - Delete merchants
@@ -85,7 +85,7 @@ Finally, create the database schema and basic data executing the following comma
 ```bash
 php artisan migrate
 ```
-## 1.3.1 Creating Dummy Data
+## 1.4 Creating Dummy Data
 
 You can use the factories to create dummy data in tinker
 
