@@ -12,7 +12,7 @@ class Country extends Model
     protected $fillable = [
         'name',
         'numeric_code',
-        'alpha_3_co}de',
+        'alpha_3_code',
         'alpha_2_code'
     ];
 }
