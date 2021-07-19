@@ -74,6 +74,12 @@ dependencies.
 composer install
 ```
 
+The next step is to generate `app.js` and `app.css` files.
+
+```bash
+npm install && npm run dev
+```
+
 Then generate the key for the application.
 
 ```bash
