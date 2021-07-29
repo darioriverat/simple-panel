@@ -3,14 +3,10 @@
 namespace App\Jobs;
 
 use App\Models\Country;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Foundation\Bus\Dispatchable;
 use Placetopay\Falco\Facades\Falco;
 
-class StoreCountryToMessageBroker implements ShouldQueue
+class StoreCountryToMessageBroker extends MessageBrokerJob
 {
-    use Dispatchable;
-
     protected Country $country;
 
     /**
@@ -22,11 +18,6 @@ class StoreCountryToMessageBroker implements ShouldQueue
     {
 
         $this->country = $country;
-    }
-
-    public function handle(): void
-    {
-        Falco::publish('countries', $this->id(), $this->event(), $this->body());
     }
 
     protected function body(): array
@@ -47,5 +38,10 @@ class StoreCountryToMessageBroker implements ShouldQueue
     protected function id(): string
     {
         return $this->country->uuid;
+    }
+
+    protected function key(): string
+    {
+        return 'countries';
     }
 }

@@ -40,6 +40,6 @@ class StoreMerchantToMessageBroker implements ShouldQueue
             'mcc' => $this->merchant->mcc->code
         ];
 
-        Falco::publish('test.placetopay.mpi', $this->merchant->uuid,'merchant::created', $body);
+        Falco::publish('merchants', $this->merchant->uuid,'merchant::created', $body);
     }
 }
