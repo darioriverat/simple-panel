@@ -4,7 +4,7 @@
     <div class="container mt-3">
         <h2>Merchant</h2>
         <div class="d-flex flex-row-reverse mt-1 mb-2">
-            <a href="{{ route('merchants.index', $merchant) }}" class="btn btn-outline-primary">Index</a>
+            <a href="{{ route('merchants.index') }}" class="btn btn-outline-primary">Index</a>
         </div>
         <div class="card">
             <div class="card-body">

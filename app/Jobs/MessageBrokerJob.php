@@ -10,13 +10,17 @@ abstract class MessageBrokerJob implements ShouldQueue
 {
     use Dispatchable;
 
+    abstract protected function key(): string;
+    abstract protected function id(): string;
+    abstract protected function event(): string;
+
     public function handle(): void
     {
         Falco::publish($this->key(), $this->id(), $this->event(), $this->body());
     }
-    
-    abstract protected function key(): string;
-    abstract protected function id(): string;
-    abstract protected function event(): string;
-    abstract protected function body(): array;
+
+    protected function body(): array
+    {
+        return [];
+    }
 }

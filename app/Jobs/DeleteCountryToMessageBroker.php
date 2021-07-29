@@ -21,11 +21,6 @@ class DeleteCountryToMessageBroker extends MessageBrokerJob
       return $this->uuid;
     }
 
-    protected function body(): array
-    {
-        return [];
-    }
-
     protected function key(): string
     {
         return 'countries';
