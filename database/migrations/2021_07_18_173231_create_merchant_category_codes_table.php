@@ -15,6 +15,7 @@ class CreateMerchantCategoryCodesTable extends Migration
     {
         Schema::create('merchant_category_codes', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('uuid')->unique();
             $table->char('code', 4)->unique();
             $table->string('description', 150);
             $table->timestamps();

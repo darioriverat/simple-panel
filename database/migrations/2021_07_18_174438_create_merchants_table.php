@@ -15,6 +15,7 @@ class CreateMerchantsTable extends Migration
     {
         Schema::create('merchants', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('uuid')->unique();
             $table->string('name', 90);
             $table->string('brand', 90);
             $table->unsignedInteger('merchant_category_code_id');

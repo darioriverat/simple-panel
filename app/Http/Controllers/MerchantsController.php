@@ -32,6 +32,7 @@ class MerchantsController extends Controller
             'merchant_category_code_id' => $request->input('mcc'),
         ]);
 
+
         return redirect()->route('merchants.show', compact('merchant'));
     }
 
