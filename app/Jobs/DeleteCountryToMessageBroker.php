@@ -2,7 +2,7 @@
 
 namespace App\Jobs;
 
-class DeleteCountryToMessageBroker extends StoreCountryToMessageBroker
+class DeleteCountryToMessageBroker extends MessageBrokerJob
 {
     private string $uuid;
 
@@ -24,5 +24,10 @@ class DeleteCountryToMessageBroker extends StoreCountryToMessageBroker
     protected function body(): array
     {
         return [];
+    }
+
+    protected function key(): string
+    {
+        return 'countries';
     }
 }
