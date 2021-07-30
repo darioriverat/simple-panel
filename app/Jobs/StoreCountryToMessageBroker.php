@@ -3,7 +3,6 @@
 namespace App\Jobs;
 
 use App\Models\Country;
-use Placetopay\Falco\Facades\Falco;
 
 class StoreCountryToMessageBroker extends MessageBrokerJob
 {
@@ -16,7 +15,6 @@ class StoreCountryToMessageBroker extends MessageBrokerJob
      */
     public function __construct(Country $country)
     {
-
         $this->country = $country;
     }
 
