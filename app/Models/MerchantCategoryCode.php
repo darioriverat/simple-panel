@@ -11,6 +11,7 @@ class MerchantCategoryCode extends Model
     use HasFactory;
 
     protected $fillable = [
+        'code',
         'description'
     ];
 

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CountriesController;
 use App\Http\Controllers\MerchantsController;
+use App\Http\Controllers\MerchantCategoryCodesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,3 +22,4 @@ Route::get('/', function () {
 
 Route::resource('merchants', MerchantsController::class);
 Route::resource('countries', CountriesController::class);
+Route::resource('merchant-category-codes', MerchantCategoryCodesController ::class);

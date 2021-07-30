@@ -32,8 +32,7 @@ class MerchantsController extends Controller
             'merchant_category_code_id' => $request->input('mcc'),
         ]);
 
-
-        return redirect()->route('merchants.show', compact('merchant'));
+        return redirect()->route('merchants.show', $merchant);
     }
 
     public function show(Merchant $merchant): View
@@ -57,7 +56,7 @@ class MerchantsController extends Controller
             'merchant_category_code_id' => $request->input('mcc'),
         ]);
 
-        return redirect()->route('merchants.show', compact('merchant'));
+        return redirect()->route('merchants.show', $merchant);
     }
 
     public function destroy(Merchant $merchant): RedirectResponse
