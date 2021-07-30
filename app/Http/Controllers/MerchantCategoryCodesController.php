@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\DeleteMerchantCategoryCodeToMessageBroker;
+use App\Jobs\StoreMerchantCategoryCodeToMessageBroker;
+use App\Jobs\UpdateMerchantCategoryCodeToMessageBroker;
 use App\Models\MerchantCategoryCode;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -29,6 +32,7 @@ class MerchantCategoryCodesController extends Controller
             'description' => $request->input('description'),
         ]);
 
+        StoreMerchantCategoryCodeToMessageBroker::dispatch($merchantCategoryCode);
 
         return redirect()->route('merchant-category-codes.show', $merchantCategoryCode);
     }
@@ -50,12 +54,17 @@ class MerchantCategoryCodesController extends Controller
             'description' => $request->input('description'),
         ]);
 
+        UpdateMerchantCategoryCodeToMessageBroker::dispatch($merchantCategoryCode);
+
         return redirect()->route('merchant-category-codes.show', $merchantCategoryCode);
     }
 
     public function destroy(MerchantCategoryCode $merchantCategoryCode): RedirectResponse
     {
+        $uuid = $merchantCategoryCode->uuid;
         $merchantCategoryCode->delete();
+
+        DeleteMerchantCategoryCodeToMessageBroker::dispatch($uuid);
 
         return redirect()->route('merchant-category-codes.index');
     }
